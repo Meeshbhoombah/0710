@@ -16,4 +16,15 @@ git clone git@github.com:Meeshbhoombah/0710.git
 cd 0710
 ```
 
+Install the dependencies with `deno`.
+```
+deno install
+```
+
+### Development
+Simply run:
+```
+deno task dev
+```
+
 
