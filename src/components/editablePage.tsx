@@ -94,7 +94,7 @@ function EditablePage() {
                     id={block.id}
                     tag={block.tag}
                     html={block.html}
-                    updatedPage={updatePageHandler}
+                    updatePage={updatePageHandler}
                     addBlock={addBlockHandler}
                     deleteBlock={deleteBlockHandler}
                 />

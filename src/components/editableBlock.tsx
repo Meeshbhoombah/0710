@@ -14,8 +14,8 @@ interface EditableBlockProps {
 
 function EditableBlock({
     id, 
-    initialHtml: initialHtml, 
-    initialTag: initialTag, 
+    html: initialHtml, 
+    tag: initialTag, 
     updatePage,
     addBlock,
     deleteBlock
@@ -26,11 +26,11 @@ function EditableBlock({
     const [previousKey, setPreviousKey] = useState('')
     const contentEditable = useRef<HTMLElement>(null)
 
-
+    
     useEffect(function () {
-        setHtml(initialHtml)
-        setTag(initialTag)
-    }, [initialHtml, initialTag])
+        setHtml(html)
+        setTag(tag)
+    }, [html, tag])
 
     useEffect(function () {
         updatePage({ id, html, tag })

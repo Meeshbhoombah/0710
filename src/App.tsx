@@ -1,4 +1,3 @@
-import './App.css'
 import EditablePage from './components/editablePage'
 
 
