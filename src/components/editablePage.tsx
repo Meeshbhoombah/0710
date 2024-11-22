@@ -7,6 +7,16 @@ function uId() {
 }
 
 
+interface Block {
+    id: string
+    html: string
+    tag: string
+    ref?: HTMLElement | null
+}
+
+const initialBlock: Block = { id: uId(), html: '', tag: 'p' }
+
+
 function setCaretToEnd(element: HTMLElement) {
     let range = document.createRange();
     let selection = window.getSelection();
@@ -30,7 +40,7 @@ interface Block {
 
 
 function EditablePage() {
-    const [blocks, setBlocks] = useState([initalBlock]);
+    const [blocks, setBlocks] = useState([initialBlock]);
 
 
     function updatePageHandler(updatedBlock: Block) {

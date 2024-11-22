@@ -2,7 +2,24 @@ import React, { useState, useEffect, useRef } from 'react'
 import ContentEditable from 'react-contenteditable'
 
 
-function EditableBlock(id, initialHtml: initialHtml, initialTag: initialTag, updatePage) {
+interface EditableBlockProps {
+    id: string
+    html: string
+    tag: string
+    updatePage: (data: { id: string; html: string; tag: string }) => void
+    addBlock: (data: { id: string; ref: HTMLElement | null }) => void
+    deleteBlock: (data: { id: string; ref: HTMLElement | null }) => void
+}
+
+
+function EditableBlock({
+    id, 
+    initialHtml: initialHtml, 
+    initialTag: initialTag, 
+    updatePage,
+    addBlock,
+    deleteBlock
+}: EditableBlockProps) {
     const [html, setHtml] = useState(initialHtml || '')
     const [htmlBackup, setHtmlBackup] = useState(null)
     const [tag, setTag] = useState(initialTag || 'p')
@@ -11,9 +28,9 @@ function EditableBlock(id, initialHtml: initialHtml, initialTag: initialTag, upd
 
 
     useEffect(function () {
-        setHtml(initalHtml)
-        setTag(initalTag)
-    }, [initialHtml, initalTag])
+        setHtml(initialHtml)
+        setTag(initialTag)
+    }, [initialHtml, initialTag])
 
     useEffect(function () {
         updatePage({ id, html, tag })
